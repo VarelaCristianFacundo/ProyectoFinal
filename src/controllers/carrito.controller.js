@@ -1,5 +1,5 @@
 const Container = require("../models/Container");
-const contenedor = new Container("src/db/products.json");
+const contenedor = new Container("src/db/productos.json");
 
 const Carrito = require("../models/Carrito");
 const carrito = new Carrito("src/db/carrito.json");
@@ -30,7 +30,7 @@ controller.deleteCarrito = async (req, res) => {
         });
 };
 
-controller.getProductsInCarrito = async (req, res) => {
+controller.getProductosInCarrito = async (req, res) => {
     const data = await carrito.getCarritoById(req.params.id);
     if (data === null) {
         res
@@ -39,17 +39,17 @@ controller.getProductsInCarrito = async (req, res) => {
                 error: "Not found",
                 message: "No se encontró el carrito"
             });
-    } else if (data.products.length > 0) {
+    } else if (data.productos.length > 0) {
         res.status(200).json({
             message: "Productos del carrito obtenidos",
             "carrito id": data.id,
-            products: data.products,
+            productos: data.productos,
         });
     } else {
         res.status(200).json({
             message: "Not found",
             "carrito id": data.id,
-            products: "El carrito no tiene productos",
+            productos: "El carrito no tiene productos",
         });
     }
 };
@@ -62,7 +62,7 @@ controller.saveProductInCarrito = async (req, res) => {
     data != null ?
         res.status(200).json({
             message: "Se añadió un producto al carrito",
-            "products in carrito": data,
+            "productos in carrito": data,
         }) :
         res.status(200).json({
             error: "No se puede añadir el producto",

@@ -2,7 +2,7 @@
   {
     "id": 1,
     "timestamp": "1/10/2022 12:34:22",
-    "products": [
+    "productos": [
       {
         "title": "Vino Malbec Toro Viejo",
         "price": 222,
@@ -39,7 +39,7 @@
   {
     "id": 2,
     "timestamp": "1/10/2022 12:32:24",
-    "products": [
+    "productos": [
       {
         "title": "Vino Blanco Cansao",
         "price": 217,
@@ -66,7 +66,7 @@
   {
     "id": 3,
     "timestamp": "1/10/2022 12:29:28",
-    "products": [
+    "productos": [
       {
         "title": "Vino Rosado Cansao",
         "price": 199,

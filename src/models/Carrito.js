@@ -3,7 +3,7 @@ const fs = require("fs");
 class Carrito {
     constructor(file) {
         this.file = file;
-        this.products = [];
+        this.productos = [];
         this.date = new Date().toLocaleString()
     }
 
@@ -14,7 +14,7 @@ class Carrito {
             const newCarrito = {
                 id: dataParsed.length + 1,
                 timestamp: this.date,
-                products: this.products,
+                productos: this.productos,
                 total: 0,
             };
             dataParsed.push(newCarrito);
@@ -85,8 +85,8 @@ class Carrito {
             }) => id == idEntered);
 
             if (carritoFound) {
-                carritoFound.products.push(object);
-                carritoFound.products.sort((a, b) => a.id - b.id);
+                carritoFound.productos.push(object);
+                carritoFound.productos.sort((a, b) => a.id - b.id);
                 leakedCarritoId.push(carritoFound);
                 leakedCarritoId.sort((a, b) => a.id - b.id);
                 const updatedFile = JSON.stringify(leakedCarritoId, null, " ");
@@ -115,17 +115,17 @@ class Carrito {
                 id
             }) => id == idCarrito);
 
-            const leakedProducts = carritoFound.products.filter(
+            const leakedProductos = carritoFound.productos.filter(
                 ({
                     id
                 }) => id != idProduct
             );
-            const productFound = carritoFound.products.find(({
+            const productFound = carritoFound.productos.find(({
                 id
             }) => id == idProduct);
 
-            carritoFound.products = leakedProducts;
-            carritoFound.products.sort((a, b) => a.id - b.id);
+            carritoFound.productos = leakedProductos;
+            carritoFound.productos.sort((a, b) => a.id - b.id);
             leakedCarritos.push(carritoFound);
             leakedCarritos.sort((a, b) => a.id - b.id);
             const updatedFile = JSON.stringify(leakedCarritos, null, " ");
