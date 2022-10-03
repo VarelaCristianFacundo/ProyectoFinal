@@ -41,6 +41,16 @@
   "timestamp": "1/10/2022 12:32:24",
   "productos": [
    {
+    "title": "Vino Malbec Calia",
+    "price": 333,
+    "thumbnail": "https://www.vinosnobles.com.ar/wp-content/uploads/2022/09/vinos-web-03-300x300.jpg",
+    "description": "Vino tinto de roble",
+    "code": "AB220",
+    "stock": 72,
+    "id": 2,
+    "timestamp": "1/10/2022 12:26:28"
+   },
+   {
     "title": "Vino Blanco Cansao",
     "price": 217,
     "thumbnail": "https://http2.mlstatic.com/D_NQ_NP_970914-MLA43407379794_092020-O.webp",
