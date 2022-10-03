@@ -55,7 +55,14 @@ controller.getProductosInCarrito = async (req, res) => {
 };
 
 controller.saveProductInCarrito = async (req, res) => {
+    if (req.body.id == null) {
+        return res.status(400).send('No se envio el id de producto')
+    }
     const productToAdd = await contenedor.getById(req.body.id);
+
+    if (productToAdd == null) {
+        return res.status(404).send('No existe el producto')
+    }
 
     const data = await carrito.addProductToCarrito(req.params.id, productToAdd);
 
@@ -64,7 +71,7 @@ controller.saveProductInCarrito = async (req, res) => {
             message: "Se añadió un producto al carrito",
             "productos in carrito": data,
         }) :
-        res.status(200).json({
+        res.status(404).json({
             error: "No se puede añadir el producto",
             message: "El carrito no existe",
         });
