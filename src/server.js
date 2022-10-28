@@ -1,13 +1,14 @@
-const app = require("./app");
+const express = require("express");
+const cartRouter = require("./routes/carrito.routes");
+const productRouter = require("./routes/productos.routes");
 
-//! STARTING SERVER
+const app = express();
 
-const server = app.listen(app.get("port"), () => {
-  console.log(`Servidor express iniciado en puerto ${app.get("port")}`);
-});
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use("/api/productos", productRouter);
+app.use("/api/carritos", cartRouter);
 
-//! ERROR HANDLER
+const port = process.env.PORT | 8080;
 
-server.on("error", (error) => {
-  console.log(`Error !!!: ${error}`);
-});
+app.listen(port, () => console.log(`Server listening on port ${port}`));
