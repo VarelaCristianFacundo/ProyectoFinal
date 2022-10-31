@@ -3,7 +3,7 @@
 http://localhost:8080/api/productos
 http://localhost:8080/api/productos/1
 
-*POST (Para agregar un producto)*
+*POST (Para agregar un producto es necesario ser ADMIN, Hay que pasar por Header el Role = admin)*
 http://localhost:8080/api/productos/
 
 *PUT Y DELETE (envío el false para que no pueda modificar ni eliminar productos)*
